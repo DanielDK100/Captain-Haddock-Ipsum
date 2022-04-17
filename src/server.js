@@ -29,14 +29,14 @@ app.get('/', (req, res) => {
 app.post('/generate-paragraphs', urlencodedParser, (req, res) => {
     res.render('index', {
         insult: lorem.generateWords(1),
-        paragraphs: generateParagraphs(req.body.numberOfParagraphs, lorem.generateSentences(8))
+        paragraphs: generateParagraphs(req.body.numberOfParagraphs, lorem)
     })
 });
 
 app.get('/generate-paragraphs-json', urlencodedParser, (req, res) => {
     res.json({
         insult: lorem.generateWords(1),
-        paragraphs: generateParagraphs(req.query.numberOfParagraphs, lorem.generateSentences(8))
+        paragraphs: generateParagraphs(req.query.numberOfParagraphs, lorem)
     })
 });
 
