@@ -1,0 +1,38 @@
+doctype html
+html(lang='da')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel="stylesheet" type="text/css" href="styles/style.css")
+        link(rel='icon', type='image/png', sizes='32x32', href='images/snowy.webp')
+        script(src='js/index.js' defer)
+        link(rel='preconnect', href='https://fonts.googleapis.com')
+        link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
+        link(href='https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@1,700&family=Lobster&display=swap', rel='stylesheet')
+        title= insult ? 'Kaptajn Haddock Ipsum | ' + insult + '!' : 'Kaptajn Haddock Ipsum'
+body
+    .flex-box
+        a.haddock(href='/')
+            if insult
+                .speech-bubble= insult
+            img(src='images/captain-haddock.webp', alt='Captain Haddock')
+        .container
+            h1.header Kaptajn Haddock Ipsum
+            p.paragraph
+                | Genererer Lorem Ipsum tekst med et drys af Kaptajn Haddocks farverige skældsord! Indtast nedenfor
+                | det antal af paragraffer der skal genereres
+                br
+                |  - din sleske spytslikker!
+            form.generate-paragraph-form(action='/generate-paragraphs', method='post')
+                input(type='number', name='numberOfParagraphs', required='', min='1', max='1000', placeholder='Antal paragraffer')
+                input.button(type='submit', value='Generer tekst!')
+                if paragraphs
+                    span.copy.button(onclick="copyToClipboard('paragraphs')") Kopier!
+            if paragraphs
+                #paragraphs
+                    each paragraph in paragraphs
+                        p.lorem-ipsum-paragraph= paragraph
+            a(href='/generate-paragraphs-json?numberOfParagraphs=7', target='_blank', title='API endpoint')
+                img.snowy(src='images/snowy.webp', alt='Snowy')
+

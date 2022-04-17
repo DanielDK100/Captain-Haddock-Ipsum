@@ -14,16 +14,13 @@ const HOST = process.env.HOST;
 const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static('public'))
-app.set('view engine', 'ejs')
+app.set('view engine', 'pug')
 const lorem = new LoremIpsum({
     words: insults,
 });
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        insult: null,
-        paragraphs: []
-    })
+    res.render('index')
 });
 
 app.post('/generate-paragraphs', urlencodedParser, (req, res) => {
