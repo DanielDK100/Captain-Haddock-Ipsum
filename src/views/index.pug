@@ -4,6 +4,7 @@ html(lang='da')
         meta(charset='UTF-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel="stylesheet" type="text/css" href="styles/animate.min.css")
         link(rel="stylesheet" type="text/css" href="styles/style.css")
         link(rel='icon', type='image/png', sizes='32x32', href='images/snowy.webp')
         script(src='js/index.js' defer)
@@ -15,8 +16,8 @@ body
     main
         a.haddock(href='/')
             if insult
-                .speech-bubble= insult + '!'
-            img(src='images/captain-haddock.webp', alt='Captain Haddock')
+                .speech-bubble.animate__animated.animate__tada= insult + '!'
+            img.animate__animated(class={ animate__zoomIn: !insult }, src='images/captain-haddock.webp', alt='Captain Haddock')
         section
             h1.heading Kaptajn Haddock Ipsum
             p.paragraph
@@ -27,10 +28,12 @@ body
                 input.button(type='submit', value='Generer tekst!')
                 if paragraphs
                     span.copy.button(onclick="copyToClipboard('paragraphs')") Kopier!
+            if errors
+                p.paragraph Valideringsfejl! Indtast en ny værdi - din analfabet!
             if paragraphs
-                #paragraphs
+                #paragraphs.animate__animated.animate__fadeIn
                     each paragraph in paragraphs
                         p.lorem-ipsum-paragraph= paragraph
             a(href='/generate-paragraphs-json?numberOfParagraphs=7', target='_blank', title='API endpoint')
-                img.snowy(src='images/snowy.webp', alt='Snowy')
+                img.snowy.animate__animated(class={ animate__slideInUp: !insult }, src='images/snowy.webp', alt='Snowy')
 
