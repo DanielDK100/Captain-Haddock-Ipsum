@@ -1,6 +1,7 @@
 'use strict';
 
 import express from 'express';
+import generateParagraphs from './helpers/generateParagraphs.js';
 import insults from './data/insults.json';
 import bodyParser from 'body-parser';
 import { LoremIpsum } from "lorem-ipsum";
@@ -17,37 +18,25 @@ app.set('view engine', 'ejs')
 const lorem = new LoremIpsum({
     words: insults,
 });
-let insult = null
-let paragraphs = []
 
 app.get('/', (req, res) => {
-    insult = null
-    paragraphs = []
     res.render('index', {
-        insult,
-        paragraphs
+        insult: null,
+        paragraphs: []
     })
 });
 
 app.post('/generate-paragraphs', urlencodedParser, (req, res) => {
-    paragraphs = []
-    for (let index = 0; index < req.body.numberOfParagraphs; index++) {
-        paragraphs.push(lorem.generateSentences(8))
-    }
     res.render('index', {
         insult: lorem.generateWords(1),
-        paragraphs
+        paragraphs: generateParagraphs(req.body.numberOfParagraphs, lorem.generateSentences(8))
     })
 });
 
 app.get('/generate-paragraphs-json', urlencodedParser, (req, res) => {
-    paragraphs = []
-    for (let index = 0; index < req.query.numberOfParagraphs; index++) {
-        paragraphs.push(lorem.generateSentences(8))
-    }
     res.json({
         insult: lorem.generateWords(1),
-        paragraphs
+        paragraphs: generateParagraphs(req.query.numberOfParagraphs, lorem.generateSentences(8))
     })
 });
 

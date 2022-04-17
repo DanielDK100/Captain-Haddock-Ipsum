@@ -5,12 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/terry.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/snowy.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@1,700&family=Lobster&display=swap"
     rel="stylesheet">
+  <title>
+    Kaptajn Haddock Ipsum <%= insult ? ' | ' + insult + '!' : '' %>
+  </title>
   <style>
     * {
       padding: 0;
@@ -19,6 +22,10 @@
 
     body {
       background: #ffecc5;
+    }
+
+    .haddock {
+      position: relative;
     }
 
     .speech-bubble {
@@ -38,9 +45,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
     }
-
 
     .flex-box {
       display: flex;
@@ -55,14 +60,10 @@
       padding: 2rem;
     }
 
-    .haddock {
-      position: relative;
-    }
-
     .header {
       font-family: 'Bangers', cursive;
       font-size: 5rem;
-      letter-spacing: 4px;
+      letter-spacing: 5px;
       color: #343434;
     }
 
@@ -70,65 +71,62 @@
       font-family: 'Lobster', cursive;
       font-size: 2.5rem;
       color: #505050;
-
     }
 
-    .lorem {
+    .lorem-ipsum-paragraph {
       font-size: 1.5rem;
       font-family: 'Comic Neue', cursive;
       color: #3e3e3e;
       line-height: 35px;
       margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .button {
+      padding: 1rem 2rem;
+      outline: none;
+      font-family: 'Lobster', cursive;
+      font-size: 1.5rem;
+      border: 4px solid white;
+      color: white;
+      cursor: pointer;
+    }
+
+    .generate-paragraph-form {
+      position: sticky;
+      top: 0;
+      background: #ffecc5;
+      padding-bottom: 1.5rem;
     }
 
     .generate-paragraph-form input[type=number] {
-      padding: 1rem;
+      padding: 1rem 0;
+      text-indent: 1rem;
       outline: none;
       width: 100%;
-      margin-top: 1.5rem;
+      margin: 1.5rem 0;
       font-family: 'Lobster', cursive;
       border: 4px solid white;
-      background-color: #f1f1f1;
-      color: #343434;
+      background-color: #f7f7f7;
+      color: #686868;
       font-size: 1.5rem;
     }
 
     .generate-paragraph-form input[type=submit] {
-      padding: 1rem 2rem;
-      outline: none;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-      font-family: 'Lobster', cursive;
-      font-size: 1.5rem;
-      border: 4px solid white;
       background-color: #57a2cd;
-      color: white;
-      cursor: pointer;
     }
 
     .generate-paragraph-form span {
-      padding: 1rem 2rem;
-      outline: none;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-      font-family: 'Lobster', cursive;
-      font-size: 1.5rem;
-      border: 4px solid white;
       background-color: #c44928;
-      color: white;
-      cursor: pointer;
     }
 
     .snowy {
-      height: 10%;
+      height: 10vh;
       position: fixed;
-      bottom: 0px;
+      bottom: 0;
       right: 0;
     }
   </style>
-  <title>
-    Kaptajn Haddock Ipsum <%= insult ? ' | ' + insult + '!' : '' %>
-  </title>
 </head>
 
 <body>
@@ -150,9 +148,9 @@
 
       <form class="generate-paragraph-form" action="/generate-paragraphs" method="post">
         <input type="number" name="numberOfParagraphs" min="1" max="1000" placeholder="Antal paragraffer">
-        <input type="submit" value="Generer tekst!">
+        <input type="submit" value="Generer tekst!" class="button">
         <% if (paragraphs.length !=0) { %>
-          <span onclick="copyToClipboard('paragraphs')" class="copy">Kopier!</span>
+          <span onclick="copyToClipboard('paragraphs')" class="copy button">Kopier!</span>
           <% } %>
       </form>
 
@@ -160,7 +158,7 @@
         <div>
           <div id="paragraphs">
             <% paragraphs.forEach(function(paragraph){ %>
-              <p class="lorem">
+              <p class="lorem-ipsum-paragraph">
                 <%= paragraph %>
               </p>
               <% }); %>
