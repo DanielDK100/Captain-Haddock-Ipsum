@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #fdde9d;
+        }
+
+        .flex-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 80rem;
+        }
+
+        .terry {
+            height: 10%;
+            position: fixed;
+            bottom: 0px;
+            right: 0;
+        }
+    </style>
+    <title>Kaptajn Haddock Ipsum</title>
+</head>
+
+<body>
+    <div class="bg-red-700 flex-box">
+        <a href="/"><img src="images/kaptajn-haddock.webp" alt="Kaptajn Haddock"></a>
+        <div class="container">
+            <h1>Kaptajn Haddock Ipsum</h1>
+            <p>Genererer Lorem Ipsum tekst med et drys af Kaptajn Haddocks mange skældsord! Indtast nedenfor antallet af
+                paragraffer der skal genereres.</p>
+            <div>
+                <form action="/generate-paragraphs" method="post">
+                    <input type="number" name="paragraphs" min="1" max="1000" placeholder="Antal paragraffer">
+                    <input type="submit" value="Generer!">
+                </form>
+            </div>
+            <% if (numberOfParagraphs) { %>
+                <div>
+                    <% numberOfParagraphs.forEach(function(paragraph){ %>
+                        <p style="margin-bottom: 15px;">
+                            <%= paragraph %>
+                        </p>
+                        <% }); %>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    <img src="images/terry.webp" alt="Terry" class="terry">
+</body>
+
+</html>

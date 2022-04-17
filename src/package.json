@@ -1,0 +1,21 @@
+{
+    "name": "kaptajn-haddock-ipsum",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "tailwind:css": "npx tailwindcss -i public/styles/tailwind.css -o public/styles/style.css",
+        "start": "nodemon --experimental-json-modules server"
+    },
+    "dependencies": {
+        "autoprefixer": "^10.4.4",
+        "body-parser": "^1.20.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.3",
+        "lorem-ipsum": "^2.0.4"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15",
+        "tailwindcss": "^3.0.24"
+    }
+}
