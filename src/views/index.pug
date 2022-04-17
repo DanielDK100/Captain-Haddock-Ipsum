@@ -11,14 +11,14 @@ html(lang='da')
         link(rel='preconnect', href='https://fonts.googleapis.com')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
         link(href='https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@1,700&family=Lobster&display=swap', rel='stylesheet')
-        title= insult ? 'Kaptajn Haddock Ipsum | ' + insult + '!' : 'Kaptajn Haddock Ipsum'
+        title Kaptajn Haddock Ipsum#{insult ? ' | ' + insult + '!' : 'nej'}
 body
     main
         a.haddock(href='/')
             if insult
                 .speech-bubble.animate__animated.animate__tada= insult + '!'
             img.animate__animated(class={ animate__zoomIn: !insult }, src='images/captain-haddock.webp', alt='Captain Haddock')
-        section
+        section.animate__animated.animate__fadeIn.animate__faster
             h1.heading Kaptajn Haddock Ipsum
             p.paragraph
                 | Genererer Lorem Ipsum tekst med et drys af Kaptajn Haddocks farverige skældsord! Indtast nedenfor
@@ -34,6 +34,6 @@ body
                 #paragraphs.animate__animated.animate__fadeIn
                     each paragraph in paragraphs
                         p.lorem-ipsum-paragraph= paragraph
-            a(href='/generate-paragraphs-json?numberOfParagraphs=7', target='_blank', title='API endpoint')
-                img.snowy.animate__animated(class={ animate__slideInUp: !insult }, src='images/snowy.webp', alt='Snowy')
+        a(href='/generate-paragraphs-json?numberOfParagraphs=7', target='_blank', title='API endpoint')
+            img.snowy.animate__animated(class={ animate__slideInUp: !insult }, src='images/snowy.webp', alt='Snowy')
 

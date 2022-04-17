@@ -82,6 +82,7 @@ section {
     top: 0;
     background: #ffecc5;
     padding-bottom: 1.5rem;
+    z-index: 1;
 }
 
 .generate-paragraph-form input[type=number] {
