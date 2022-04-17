@@ -19,17 +19,16 @@ const lorem = new LoremIpsum({
     words: insults,
 });
 
+// Routes
 app.get('/', (req, res) => {
     res.render('index')
 });
-
 app.post('/generate-paragraphs', urlencodedParser, (req, res) => {
     res.render('index', {
         insult: lorem.generateWords(1),
         paragraphs: generateParagraphs(req.body.numberOfParagraphs, lorem)
     })
 });
-
 app.get('/generate-paragraphs-json', urlencodedParser, (req, res) => {
     res.json({
         insult: lorem.generateWords(1),

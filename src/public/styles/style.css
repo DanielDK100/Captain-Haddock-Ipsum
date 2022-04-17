@@ -30,7 +30,7 @@ body {
     align-items: center;
 }
 
-.flex-box {
+main {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,12 +38,12 @@ body {
     margin-top: 7rem;
 }
 
-.container {
+section {
     max-width: 80rem;
     padding: 0 2rem;
 }
 
-.header {
+.heading {
     font-family: 'Bangers', cursive;
     font-size: 4rem;
     letter-spacing: 5px;
