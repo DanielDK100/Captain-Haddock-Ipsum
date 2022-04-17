@@ -147,7 +147,7 @@
       </p>
 
       <form class="generate-paragraph-form" action="/generate-paragraphs" method="post">
-        <input type="number" name="numberOfParagraphs" min="1" max="1000" placeholder="Antal paragraffer">
+        <input type="number" name="numberOfParagraphs" required min="1" max="1000" placeholder="Antal paragraffer">
         <input type="submit" value="Generer tekst!" class="button">
         <% if (paragraphs.length !=0) { %>
           <span onclick="copyToClipboard('paragraphs')" class="copy button">Kopier!</span>
