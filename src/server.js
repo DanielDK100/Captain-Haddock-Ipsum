@@ -1,5 +1,5 @@
 'use strict';
-
+import 'dotenv/config'
 import express from 'express';
 import generateParagraphs from './helpers/generateParagraphs.js';
 import insults from './data/insults.json';
@@ -7,8 +7,8 @@ import bodyParser from 'body-parser';
 import { LoremIpsum } from "lorem-ipsum";
 
 // Constants
-const PORT = 8080;
-const HOST = '0.0.0.0';
+const PORT = process.env.PORT;
+const HOST = process.env.HOST;
 
 // App
 const app = express();
@@ -20,6 +20,7 @@ const lorem = new LoremIpsum({
 });
 
 app.get('/', (req, res) => {
+    const port = process.env.PORT;
     res.render('index', {
         insult: null,
         paragraphs: []
