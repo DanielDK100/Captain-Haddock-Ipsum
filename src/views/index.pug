@@ -21,9 +21,7 @@ body
             h1.header Kaptajn Haddock Ipsum
             p.paragraph
                 | Genererer Lorem Ipsum tekst med et drys af Kaptajn Haddocks farverige skældsord! Indtast nedenfor
-                | det antal af paragraffer der skal genereres
-                br
-                | - din sleske spytslikker!
+                | det antal af paragraffer der skal genereres - din sleske spytslikker!
             form.generate-paragraph-form(action='/generate-paragraphs', method='post')
                 input(type='number', name='numberOfParagraphs', required='', min='1', max='1000', placeholder='Antal paragraffer')
                 input.button(type='submit', value='Generer tekst!')
