@@ -17,22 +17,26 @@ app.set('view engine', 'ejs')
 const lorem = new LoremIpsum({
     words: insults,
 });
-let numberOfParagraphs = null
+let numberOfParagraphs = []
+let insult = null
 
 app.get('/', (req, res) => {
-    numberOfParagraphs = null
+    numberOfParagraphs = []
+    insult = null
     res.render('index', {
         numberOfParagraphs,
+        insult
     })
 });
 
 app.post('/generate-paragraphs', urlencodedParser, (req, res) => {
     numberOfParagraphs = []
     for (let index = 0; index < req.body.paragraphs; index++) {
-        numberOfParagraphs.push(lorem.generateParagraphs(2))
+        numberOfParagraphs.push(lorem.generateSentences(8))
     }
     res.render('index', {
         numberOfParagraphs,
+        insult: lorem.generateWords(1)
     })
 });
 
