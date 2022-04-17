@@ -4,7 +4,8 @@
     "type": "module",
     "main": "server.js",
     "scripts": {
-        "start": "nodemon --experimental-json-modules server"
+        "build": "nodemon --experimental-json-modules server",
+        "start": "node --experimental-json-modules server"
     },
     "dependencies": {
         "body-parser": "^1.20.0",
