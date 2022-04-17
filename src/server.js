@@ -20,7 +20,6 @@ const lorem = new LoremIpsum({
 });
 
 app.get('/', (req, res) => {
-    const port = process.env.PORT;
     res.render('index', {
         insult: null,
         paragraphs: []
