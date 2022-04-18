@@ -6,7 +6,7 @@ function copyToClipboard(id) {
     try {
         document.execCommand('copy');
         window.getSelection().removeAllRanges();
-        document.querySelector('.copy').style.display = 'none';
+        document.querySelector('.copy').innerText = 'Kopieret!';
     } catch (err) {
         console.log('Unable to copy!');
     }

@@ -28,7 +28,7 @@ body
                 input(type='number', name='numberOfParagraphs', required='', min='1', max='1000', placeholder='Antal paragraffer')
                 input.button(type='submit', value='Generer tekst!')
                 if paragraphs
-                    span.copy.button(onclick="copyToClipboard('paragraphs')") Kopier!
+                    span.copy.button(onclick="copyToClipboard('paragraphs')") Kopier tekst!
             if errors
                 p.paragraph Valideringsfejl! Indtast en ny værdi - din analfabet!
             if paragraphs
