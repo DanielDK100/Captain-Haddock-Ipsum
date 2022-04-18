@@ -4,6 +4,7 @@ html(lang='da')
         meta(charset='UTF-8')
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel="stylesheet" type="text/css" href="styles/reset.min.css")
         link(rel="stylesheet" type="text/css" href="styles/animate.min.css")
         link(rel="stylesheet" type="text/css" href="styles/style.css")
         link(rel='icon', type='image/png', sizes='32x32', href='images/snowy.webp')
@@ -17,7 +18,7 @@ body
         a.haddock(href='/')
             if insult
                 .speech-bubble.animate__animated.animate__tada= insult + '!'
-            img.animate__animated(class={ animate__zoomIn: !insult }, src='images/captain-haddock.webp', alt='Captain Haddock')
+            img.animate__animated(class={ animate__zoomIn: !insult, animate__headShake: insult }, src='images/captain-haddock.webp', alt='Captain Haddock')
         section.animate__animated.animate__fadeIn.animate__faster
             h1.heading Kaptajn Haddock Ipsum
             p.paragraph
