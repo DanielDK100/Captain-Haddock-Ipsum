@@ -7,7 +7,7 @@ html(lang='da')
         link(rel="stylesheet" type="text/css" href="styles/reset.min.css")
         link(rel="stylesheet" type="text/css" href="styles/animate.min.css")
         link(rel="stylesheet" type="text/css" href="styles/style.css")
-        link(rel='icon', type='image/png', sizes='32x32', href='images/snowy.webp')
+        link(rel='icon', type='image/webp', sizes='32x32', href='images/snowy.webp')
         script(src='js/index.js' defer)
         link(rel='preconnect', href='https://fonts.googleapis.com')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
@@ -18,7 +18,7 @@ body
         a.haddock(href='/')
             if insult
                 .speech-bubble.animate__animated.animate__tada= insult + '!'
-            img.animate__animated(class={ animate__zoomIn: !insult, animate__headShake: insult }, src='images/captain-haddock.webp', alt='Captain Haddock')
+            img.animate__animated(class={ 'animate__zoomIn animate__fast': !insult, animate__headShake: insult }, src='images/captain-haddock.webp', alt='Captain Haddock')
         section.animate__animated.animate__fadeIn.animate__faster
             h1.heading Kaptajn Haddock Ipsum
             p.paragraph
@@ -36,5 +36,5 @@ body
                     each paragraph in paragraphs
                         p.lorem-ipsum-paragraph= paragraph
         a(href='/generate-paragraphs-json?numberOfParagraphs=7', target='_blank', title='API endpoint')
-            img.snowy.animate__animated(class={ animate__slideInUp: !insult }, src='images/snowy.webp', alt='Snowy')
+            img.snowy.animate__animated.animate__faster.animate__delay-1s(class={ animate__slideInUp: !insult }, src='images/snowy.webp', alt='Snowy')
 
