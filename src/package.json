@@ -1,5 +1,5 @@
 {
-    "name": "kaptajn-haddock-ipsum",
+    "name": "captain-haddock-ipsum",
     "version": "1.0.0",
     "main": "server.js",
     "scripts": {
