@@ -12,29 +12,31 @@ html(lang='da')
         link(rel='preconnect', href='https://fonts.googleapis.com')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
         link(href='https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@1,700&family=Lobster&display=swap', rel='stylesheet')
-        title Kaptajn Haddock Ipsum#{insult ? ' | ' + insult + '!' : ''}
+        title #{t("captain")} Haddock Ipsum#{insult ? ' | ' + insult + '!' : ''}
 body
     main
         a.haddock(href='/')
             if insult
-                .speech-bubble.animate__animated.animate__tada= insult + '!'
+                .speech-bubble.animate__animated.animate__tada #{insult}!
             img.animate__animated(class={ 'animate__zoomIn animate__fast': !insult, animate__headShake: insult }, src='images/captain-haddock.webp', alt='Captain Haddock')
         section.animate__animated.animate__fadeIn.animate__faster
-            h1.heading Kaptajn Haddock Ipsum
-            p.paragraph
-                | Genererer Lorem Ipsum tekst med et drys af Kaptajn Haddocks farverige skældsord! Indtast nedenfor
-                | det antal af paragraffer der skal genereres - din sleske spytslikker!
+            h1.heading #{t("captain")} Haddock Ipsum
+            p.paragraph #{t("description")} 
             form.generate-paragraph-form(action='/generate-paragraphs', method='post')
-                input(type='number', name='numberOfParagraphs', required='', min='1', max='1000', placeholder='Antal paragraffer')
-                input.button(type='submit', value='Generer tekst!')
+                input(type='number', name='numberOfParagraphs', required, min='1', max='1000', placeholder=t("numberOfParagraphs"))
+                .languages
+                    a(href='/?lng=en') English | 
+                    a(href='/?lng=da') Danish
+                input.button(type='submit', value=t("generateButton"))
                 if paragraphs
-                    span.copy.button(onclick="copyToClipboard('paragraphs')") Kopier tekst!
+                    span.copy.button(onclick="copyToClipboard('paragraphs')") #{t("copyButton")} 
             if errors
-                p.paragraph Valideringsfejl! Indtast en ny værdi - din analfabet!
+                p.paragraph #{t("validationError")}
             if paragraphs
+                
                 #paragraphs.animate__animated.animate__fadeIn
                     each paragraph in paragraphs
-                        p.lorem-ipsum-paragraph= paragraph
+                        p.lorem-ipsum-paragraph #{paragraph}
         a(href='/generate-paragraphs-json?numberOfParagraphs=7', target='_blank', title='API endpoint')
             img.snowy.animate__animated.animate__faster.animate__delay-1s(class={ animate__slideInUp: !insult }, src='images/snowy.webp', alt='Snowy')
 

@@ -1,49 +1,41 @@
 'use strict';
-import 'dotenv/config'
-import express from 'express';
-import generateParagraphs from './helpers/generateParagraphs.js';
-import insults from './data/insults.json';
-import bodyParser from 'body-parser';
-import { body, validationResult } from 'express-validator';
-import { LoremIpsum } from "lorem-ipsum";
+require('dotenv').config()
+const express = require('express');
+const i18next = require('i18next');
+const middleware = require('i18next-http-middleware')
+const Backend = require('i18next-node-fs-backend');
+const bodyParser = require('body-parser');
+
+const generateIpsumRoute = require('./routes/generateIpsumRoute.js');
 
 // Constants
 const PORT = process.env.PORT;
 const HOST = process.env.HOST;
 
 // App
-const app = express();
+i18next
+    .use(Backend)
+    .use(middleware.LanguageDetector)
+    .init({
+        backend: {
+            loadPath: 'locales/{{lng}}/{{ns}}.json',
+        },
+        debug: false,
+        detection: {
+            order: ['querystring', 'cookie'],
+            caches: ['cookie']
+        },
+        preload: ['en', 'da'],
+        fallbackLng: 'en'
+    });
+const app = express()
+app.use(middleware.handle(i18next));
+
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'pug')
-const lorem = new LoremIpsum({
-    words: insults,
-});
 
-// Routes
-app.get('/', (req, res) => {
-    return res.render('index')
-});
-app.post('/generate-paragraphs',
-    body('numberOfParagraphs').isInt({ min: 1, max: 1000 }),
-    (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.render('index', {
-                errors: errors.array()
-            })
-        }
-        return res.render('index', {
-            insult: lorem.generateWords(1),
-            paragraphs: generateParagraphs(req.body.numberOfParagraphs, lorem)
-        })
-    });
-app.get('/generate-paragraphs-json', (req, res) => {
-    return res.json({
-        insult: lorem.generateWords(1),
-        paragraphs: generateParagraphs(req.query.numberOfParagraphs, lorem)
-    })
-});
+app.use('/', generateIpsumRoute);
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
