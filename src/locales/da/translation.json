@@ -5,6 +5,8 @@
     "copyButton": "Kopier tekst!",
     "generateButton": "Generer tekst!",
     "validationError": "Valideringsfejl! Indtast en ny værdi - din analfabet!",
+    "english": "Engelsk",
+    "danish": "Dansk",
     "insults": [
         "abemås",
         "afholdsamøbe",

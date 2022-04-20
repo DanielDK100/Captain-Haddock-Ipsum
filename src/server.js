@@ -3,7 +3,7 @@ require('dotenv').config()
 const express = require('express');
 const i18next = require('i18next');
 const middleware = require('i18next-http-middleware')
-const Backend = require('i18next-node-fs-backend');
+const Backend = require('i18next-fs-backend');
 const bodyParser = require('body-parser');
 
 const generateIpsumRoute = require('./routes/generateIpsumRoute.js');
@@ -22,15 +22,15 @@ i18next
         },
         debug: false,
         detection: {
-            order: ['querystring', 'cookie'],
+            order: ['querystring', 'cookie', 'header'],
             caches: ['cookie']
         },
-        preload: ['en', 'da'],
-        fallbackLng: 'en'
+        preload: ['en-US', 'da'],
+        fallbackLng: 'en-US'
     });
 const app = express()
-app.use(middleware.handle(i18next));
 
+app.use(middleware.handle(i18next));
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'pug')

@@ -5,6 +5,8 @@
     "copyButton": "Copy text!",
     "generateButton": "Generate text!",
     "validationError": "Validation error! Enter a new value - you illiterate!",
+    "english": "English",
+    "danish": "Danish",
     "insults": [
         "pirates",
         "doryphore",
