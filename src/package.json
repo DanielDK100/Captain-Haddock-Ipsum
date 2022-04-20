@@ -4,7 +4,7 @@
     "main": "server.js",
     "scripts": {
         "watch:server": "nodemon --experimental-json-modules server",
-        "watch:tailwind": "npx tailwindcss -i ./public/styles/tailwind.css -o ./public/styles/style.css --watch --minify",
+        "watch:tailwind": "npx tailwindcss -i ./public/styles/tailwind.css -o ./public/styles/tailwind.min.css --watch --minify",
         "build": "concurrently \"npm run watch:*\"",
         "start": "node --experimental-json-modules server"
     },
