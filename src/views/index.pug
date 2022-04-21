@@ -23,7 +23,7 @@ body(class='bg-amber-100 selection:bg-orange-700 selection:text-white relative')
             h1(class='font-bangers text-5xl text-stone-700 tracking-wide mb-1 md:text-7xl') #{t('captain')} Haddock Ipsum
             p(class='font-lobster text-2xl text-zinc-600 mb-4 md:text-4xl') #{t('description')} 
             form(class='font-lobster bg-amber-100 sticky top-0 z-10', action='/generate-paragraphs', method='post')
-                input(class='w-full bg-gray-100 text-zinc-600 text-2xl outline-none border-4 border-white p-3 my-2 md:p-5', type='number', name='numberOfParagraphs', required, min='1', max='1000', placeholder=t('numberOfParagraphs'))
+                input(class='w-full bg-gray-100 text-zinc-600 text-2xl outline-none border-4 border-white p-3 my-2 md:p-5', type='number', name='numberOfParagraphs', required, min='1', max='1000', placeholder=t('numberOfParagraphsPlaceholder'))
                 div(class='flex gap-x-2 mb-1')
                     input(class='bg-blue-400 grow text-white text-2xl p-2 border-4 border-white cursor-pointer transition text-center md:px-8 md:py-4 hover:opacity-80', type='submit', value=t('generateButton'))
                     if paragraphs

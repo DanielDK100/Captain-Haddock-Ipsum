@@ -1,7 +1,7 @@
 {
     "captain": "Kaptajn",
     "description": "Genererer Lorem Ipsum tekst med et drys af Kaptajn Haddocks farverige skældsord! Indtast nedenfor det antal af paragraffer der skal genereres - din sleske spytslikker!",
-    "numberOfParagraphs": "Antal paragraffer",
+    "numberOfParagraphsPlaceholder": "Antal paragraffer",
     "copyButton": "Kopier tekst!",
     "generateButton": "Generer tekst!",
     "validationError": "Valideringsfejl! Indtast en ny værdi - din analfabet!",
