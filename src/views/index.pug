@@ -6,6 +6,12 @@ html(lang=language)
         meta(name='viewport', content='width=device-width, initial-scale=1.0')
         link(rel='stylesheet' type='text/css' href='styles/tailwind.min.css')
         link(rel='icon', type='image/webp', sizes='32x32', href='images/snowy.webp')
+        script(src='https://www.googletagmanager.com/gtag/js?id=G-FG68CTFQGG"' async)
+        script.
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FG68CTFQGG');
         script(src='js/index.js' async)
         link(rel='preconnect', href='https://fonts.googleapis.com')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
