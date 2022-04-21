@@ -17,10 +17,10 @@ i18next
     .use(Backend)
     .use(middleware.LanguageDetector)
     .init({
+        debug: false,
         backend: {
             loadPath: 'locales/{{lng}}/{{ns}}.json',
         },
-        debug: false,
         detection: {
             order: ['querystring', 'cookie', 'header'],
             caches: ['cookie']
@@ -29,11 +29,16 @@ i18next
         fallbackLng: 'en-US'
     });
 const app = express()
-
 app.use(middleware.handle(i18next));
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(function (req, res, next) {
+    res.locals._ = require('lodash');
+    res.locals.language = req.language;
+    next();
+});
 app.set('view engine', 'pug')
+
 
 app.use('/', generateIpsumRoute);
 
