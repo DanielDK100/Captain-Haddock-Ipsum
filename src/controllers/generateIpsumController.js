@@ -10,6 +10,7 @@ const index = (req, res) => {
 const generate = (req, res) => {
     const lorem = new LoremIpsum({ words: req.t('insults', { returnObjects: true }) });
 
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.render('index', { errors: errors.array() })
