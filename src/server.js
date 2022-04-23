@@ -39,7 +39,6 @@ app.use(function (req, res, next) {
 });
 app.set('view engine', 'pug')
 
-
 app.use('/', generateIpsumRoute);
 
 app.listen(PORT, HOST);
