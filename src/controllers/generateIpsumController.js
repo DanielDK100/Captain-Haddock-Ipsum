@@ -4,7 +4,6 @@ const generateParagraphs = require('../helpers/generateParagraphs');
 const LoremIpsum = require('lorem-ipsum').LoremIpsum;
 
 const index = (req, res) => {
-    console.log('test');
     return res.render('index')
 }
 
