@@ -26,6 +26,6 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            whoami
+            cd ${{ secrets.REMOTE_TARGET }}
             ls -al
 
