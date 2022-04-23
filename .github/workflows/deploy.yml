@@ -1,5 +1,4 @@
 name: SSH Deploy
-
 on:
   push:
     branches: [ main ]
@@ -10,7 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: ssh deploy
+    - name: Deploy
       uses: easingthemes/ssh-deploy@main
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -19,3 +18,13 @@ jobs:
           SOURCE: "src/"
           TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: ".env, node_modules/"
+          
+    - name: Post deploy
+      uses: appleboy/ssh-action@master
+      with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: | 
+            npm install; 
+
