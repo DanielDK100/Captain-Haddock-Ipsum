@@ -25,5 +25,5 @@ jobs:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: sh build.sh
+          script: /var/www/captain-haddock-ipsum.danielwinther.dk/src && sh build.sh
 
