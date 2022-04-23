@@ -26,5 +26,5 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: | 
-            npm install; 
+            npm install
 
