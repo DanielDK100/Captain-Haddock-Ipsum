@@ -1,12 +1,11 @@
-name: SSH deploy
+name: SSH deployment
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    
     steps:
     - uses: actions/checkout@v3
     - name: Deploy
@@ -19,9 +18,13 @@ jobs:
           TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: ".env, node_modules/"
           
-    - name: Post deploy
-      uses: appleboy/ssh-action@master
-      with:
+  post-deploy:
+    name: Post deploy
+    runs-on: ubuntu-latest
+      steps:
+      - name: Run commands
+        uses: appleboy/ssh-action@master
+        with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
