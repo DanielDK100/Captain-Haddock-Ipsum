@@ -19,7 +19,6 @@ jobs:
           EXCLUDE: ".env, node_modules/"
 
   post-deploy:
-    name: Post deploy
     runs-on: ubuntu-latest
     steps:
     - name: Execute commands
