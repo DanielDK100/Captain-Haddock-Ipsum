@@ -17,19 +17,19 @@ jobs:
           SOURCE: "src/"
           TARGET: ${{ secrets.REMOTE_TARGET }}
           EXCLUDE: ".env, node_modules/"
-          
+
   post-deploy:
     name: Post deploy
     runs-on: ubuntu-latest
-      steps:
-      - name: Run commands
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.REMOTE_HOST }}
-          username: ${{ secrets.REMOTE_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd ${{ secrets.REMOTE_TARGET }}
-            npm install
-            pm2 restart all
+    steps:
+    - name: Execute commands
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd ${{ secrets.REMOTE_TARGET }}
+          npm install
+          pm2 restart all
 
