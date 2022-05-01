@@ -23,7 +23,7 @@ body(class='bg-amber-100 selection:bg-orange-700 selection:text-white relative')
     main(class='container my-4 flex flex-col items-center md:mt-28')
         div(class='relative mb-8 md:mb-0')
             if insult
-                div(class='flex justify-center items-center text-center p-20 font-bangers text-4xl text-stone-800 tracking-wide static left-32 -top-[110px] min-h-[50%] w-96 bg-contain z-10 bg-center bg-no-repeat bg-[url(½../images/speech-bubble.webp")] animate__animated animate__tada md:absolute md:p-12') #{insult}!
+                div(class='flex justify-center items-center text-center p-20 font-bangers text-4xl text-stone-800 tracking-wide static left-32 -top-[110px] min-h-[50%] w-96 bg-contain z-10 bg-center bg-no-repeat bg-[url("../images/speech-bubble.webp")] animate__animated animate__tada md:absolute md:p-12') #{insult}!
             div
                 a(href='/')
                     img(class='hidden animate__animated md:block', class={ 'animate__zoomIn animate__fast': !insult, animate__headShake: insult }, src='images/captain-haddock.webp', alt='Captain Haddock')
