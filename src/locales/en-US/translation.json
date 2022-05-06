@@ -1,8 +1,9 @@
 {
     "captain": "Captain",
-    "description": "Generates Lorem Ipsum text with a sprinkle of Captain Haddock's colorful insults! Enter below the number of paragraphs to be generated - you miserable earthworm!",
+    "description": "Generates Lorem Ipsum text with a sprinkle of Captain Haddock's colorful insults! Enter the desired number of paragraphs to be generated below - you miserable earthworm!",
     "numberOfParagraphsPlaceholder": "Number of paragraphs",
     "copyButton": "Copy text!",
+    "copiedButton": "Copied!",
     "generateButton": "Generate text!",
     "validationError": "Validation error! Enter a new value - you illiterate!",
     "english": "English",

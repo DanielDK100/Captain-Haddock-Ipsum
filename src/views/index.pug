@@ -14,7 +14,20 @@ html(lang=language)
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-FG68CTFQGG');
-        script(src='js/index.js' async)
+
+            function copyToClipboard(id) {
+                const range = document.createRange();
+                range.selectNode(document.getElementById(id));
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                try {
+                    document.execCommand('copy');
+                    window.getSelection().removeAllRanges();
+                    document.querySelector('.copy').innerText = "#{t('copiedButton')}";
+                } catch (err) {
+                    console.log('Unable to copy!');
+                }
+            }
         link(rel='preconnect', href='https://fonts.googleapis.com')
         link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
         link(href='https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@1,700&family=Lobster&display=swap', rel='stylesheet')

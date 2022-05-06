@@ -3,6 +3,7 @@
     "description": "Genererer Lorem Ipsum tekst med et drys af Kaptajn Haddocks farverige skældsord! Indtast nedenfor det antal af paragraffer der skal genereres - din sleske spytslikker!",
     "numberOfParagraphsPlaceholder": "Antal paragraffer",
     "copyButton": "Kopier tekst!",
+    "copiedButton": "Kopieret!",
     "generateButton": "Generer tekst!",
     "validationError": "Valideringsfejl! Indtast en ny værdi - din analfabet!",
     "english": "Engelsk",
