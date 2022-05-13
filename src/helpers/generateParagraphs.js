@@ -1,7 +1,7 @@
 module.exports = function (numberOfParagraphs, lorem) {
-    const paragraphs = []
-    for (let index = 0; index < numberOfParagraphs; index++) {
-        paragraphs.push(lorem.generateSentences(8))
-    }
-    return paragraphs
-}
+  const paragraphs = [];
+  for (let index = 0; index < numberOfParagraphs; index++) {
+    paragraphs.push(lorem.generateSentences(8));
+  }
+  return paragraphs;
+};
