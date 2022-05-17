@@ -19,6 +19,7 @@ jobs:
           EXCLUDE: ".env, node_modules/"
 
   post-deploy:
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Executing commands
