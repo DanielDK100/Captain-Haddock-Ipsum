@@ -7,10 +7,14 @@ const index = (req, res) => {
   return res.render("index");
 };
 
-const generate = (req, res) => {
-  const lorem = new LoremIpsum({
+const generateLoremIpsum = (req, res) => {
+  return new LoremIpsum({
     words: req.t("insults", { returnObjects: true }),
   });
+};
+
+const generate = (req, res) => {
+  const lorem = generateLoremIpsum(req, res);
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -23,9 +27,7 @@ const generate = (req, res) => {
 };
 
 const generateJson = (req, res) => {
-  const lorem = new LoremIpsum({
-    words: req.t("insults", { returnObjects: true }),
-  });
+  const lorem = generateLoremIpsum(req, res);
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
