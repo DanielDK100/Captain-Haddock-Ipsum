@@ -13,7 +13,7 @@
     "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "express-validator": "^6.14.2",
+    "express-validator": "^6.14.3",
     "i18next": "^21.10.0",
     "i18next-fs-backend": "^1.2.0",
     "i18next-http-middleware": "^3.2.2",
